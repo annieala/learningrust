@@ -1,12 +1,14 @@
-fn main() {
-    println!("Hello, world!");
-}
 use std::io;  // "std" is a standard library. "io" is an input/output library in the standard library. 
 
+use rand::Rng; 
 // main function is the entry point of the program 
 fn main() {  
     // println! is a macro that prints the string to the screen 
     println!("Guess the number!"); 
+
+    let secret_number = rand::thread_rng().gen_range(1..=100);
+
+    println! ("The secret number is {secret_number}");
 
     println!("Please input your guess."); 
     // mut for mutable variable, string::new() creates a new empty string, :: is a path seperator, operator to navigate name spaces 
@@ -22,7 +24,7 @@ fn main() {
     // referencing is like borrowing with lifetimes and doesn't trigger re-render 
 
     // 
-    .expect("Failed to read line"); 
+    .expect("Failed to read line");   // expect is like an if else throw error pattern in one line. 
 
     println!("You guessed {guess}")
 }
